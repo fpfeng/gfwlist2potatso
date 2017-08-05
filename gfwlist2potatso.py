@@ -56,7 +56,7 @@ def fetch_gfwlist(local_path):
     else:
         try:
             resp = requests.get(GFWLIST_URL, timeout=10)
-            content = StringIO.StringIO(resp.read().decode('base64'))
+            content = StringIO.StringIO(resp.content.decode('base64'))
         except:
             error('fetch gfwlist fail.', exit=True)
     
