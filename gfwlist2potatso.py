@@ -4,13 +4,13 @@ from __future__ import print_function
 
 import re
 import os
+import json
 import datetime
 import base64
 import argparse
 import codecs
 import StringIO
 import sys
-import pprint
 import requests
 from urlparse import urlparse
 
@@ -154,8 +154,8 @@ def main():
     output = OUTPUT % {
         'dt_detail_second': datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
         'dt_short_date': datetime.datetime.now().strftime('%Y-%m-%d'),
-        'rule_proxy': pprint.pformat(rules['proxy'], indent=4),
-        'rule_direct': pprint.pformat(rules['direct'], indent=4),
+        'rule_proxy': json.dumps(rules['proxy'], indent=4),
+        'rule_direct': json.dumps(rules['direct'], indent=4),
     }
     
     if output_path == '-':
